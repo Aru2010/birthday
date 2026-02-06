@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Aayushi ❤️</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container{
+      width: 90%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.25);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform: translateY(20px);}
+      to{opacity:1; transform: translateY(0);}
+    }
+
+    h1{
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    p{
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .btn{
+      background: white;
+      color: #ff4d6d;
+      border: none;
+      padding: 12px 22px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .btn:hover{
+      transform: scale(1.07);
+      background: #ffe3ea;
+    }
+
+    .hidden{
+      display: none;
+    }
+
+    .surprise-box{
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.2);
+      animation: popUp 1s ease;
+    }
+
+    @keyframes popUp{
+      from{transform: scale(0.8); opacity: 0;}
+      to{transform: scale(1); opacity: 1;}
+    }
+
+    .heart{
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall{
+      to{
+        transform: translateY(110vh);
+      }
+    }
+
+    .final{
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #fff8fb;
+      text-shadow: 0px 0px 10px rgba(255,255,255,0.4);
+    }
+
+    .signature{
+      margin-top: 15px;
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    audio{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther30.wav" type="audio/wav">
+  </audio>
+
+  <div class="container">
+    <h1>Happy Birthday My Love ❤️</h1>
+
+    <p>
+      Today isn’t just your birthday...  
+      it’s the day the world got its most beautiful soul.  
+      And somehow… I got lucky enough to call you mine.
+    </p>
+
+    <button class="btn" onclick="startSurprise()">Click for your surprise 🎁</button>
+
+    <div id="surprise" class="surprise-box hidden">
+      <h2>💖 A Message From My Heart 💖</h2>
+
+      <p>
+        You are not just my girlfriend...  
+        you are my comfort, my happiness, my safe place.  
+        Every time you smile, my whole world feels brighter.
+      </p>
+
+      <p>
+        I don’t know what I did to deserve you,  
+        but I promise I’ll keep choosing you, loving you,  
+        and making you feel special every single day.
+      </p>
+
+      <p class="final">
+        I LOVE YOU MORE THAN WORDS CAN EVER EXPLAIN ❤️
+      </p>
+
+      <p class="signature">
+        — Yours forever 💕
+      </p>
+
+      <button class="btn" onclick="showFinal()">One last thing... 🌙</button>
+    </div>
+
+    <div id="finalSurprise" class="surprise-box hidden">
+      <h2>🌹 My Forever Wish 🌹</h2>
+
+      <p>
+        My wish is simple:  
+        that you always stay happy, confident, and loved.  
+        And I want to be the reason behind your smile.
+      </p>
+
+      <p class="final">
+        Happy Birthday My Queen 👑❤️
+      </p>
+
+      <p>
+        🎂✨ May your life be filled with love, success and endless smiles ✨🎂
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function startSurprise(){
+      document.getElementById("surprise").classList.remove("hidden");
+
+      // Start music
+      let music = document.getElementById("bgMusic");
+      music.play();
+
+      // Hearts rain
+      for(let i=0; i<30; i++){
+        createHeart();
+      }
+    }
+
+    function showFinal(){
+      document.getElementById("finalSurprise").classList.remove("hidden");
+    }
+
+    function createHeart(){
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
