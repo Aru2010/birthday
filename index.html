@@ -194,7 +194,10 @@
 
       // Start music
       let music = document.getElementById("bgMusic");
-      music.play();
+     music.play().catch(err => {
+    alert("Tap the screen once to allow music 🎶");
+    });
+
 
       // Hearts rain
       for(let i=0; i<30; i++){
